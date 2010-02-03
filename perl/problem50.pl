@@ -1,50 +1,36 @@
 #!/usr/bin/perl
-#solution: 296962999629
+#solution: 997651
 use strict;
 use warnings;
 
-print euler_problem_49(), "\n";
+print euler_problem_50(), "\n";
 
-sub euler_problem_49 {
+sub euler_problem_50 {
+    my @primes = (2);
     my %phash = (2 => 1);
-    for(my $i = 0; $i < 10000; ++$i) {
+    for(my $i = 3; $i < 1000000; $i += 2) {
         if(is_prime($i)) {
+            push(@primes, $i);
             $phash{$i} = 1;
         }
     }
     
-    for(my $i = 9999; $i > 7660; --$i) {
-        if(is_prime($i,\%phash)) {
-            if(is_prime($i-3330,\%phash) && is_prime($i-2*3330,\%phash) && is_permutation($i, $i-3330) && is_permutation($i, $i-2*3330) && $i != 1487) {
-                return ($i-2*3330).($i-3330).$i;
+    my $sum = 0; my $count = 0;
+    my $max_c = 0; my $max_p = 0;
+    for(my $i = 0; $i <= $#primes; ++$i) {
+        $sum = 0;
+        for(my $j = $i; $j <= $#primes && $sum < 1000000; ++$j) {
+            $sum += $primes[$j];
+            if(is_prime($sum)) {
+                if($max_c < $j - $i + 1) {
+                    $max_c = $j - $i + 1;
+                    $max_p = $sum;
+                }
             }
         }
     }
-}
-
-sub is_permutation {
-    my ($i, $n) = @_;
-    my $o = $n;
-    my @cs = split(//, $i);
-    foreach my $c (@cs) {
-        if($n eq $c) {
-            return 1;
-        }
-        my $idx = index($n,$c);
-        if($idx > -1) {
-            $n = substr($n, $idx, 1, "");
-        }
-    }
-    return length($n) == 0;
-}
-
-sub factorial {
-    my $n = shift;
-    if($n == 2) {
-        return 2;
-    }
     
-    return $n * factorial($n-1);
+    return $max_p;
 }
 
 sub slow_prime {
