@@ -136,8 +136,7 @@ public class Problem51 {
     }
 
     public static void main(String args[]) {
-        Problem51 problem = new Problem51();
-        System.out.println(problem.eulerProblem51());
+        System.out.println((new Problem51()).eulerProblem51());
     }
     
     private HashMap<Integer,Integer> phash = new HashMap<Integer,Integer>();
