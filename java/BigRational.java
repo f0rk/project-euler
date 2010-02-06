@@ -7,8 +7,9 @@ public class BigRational extends Number implements Comparable<BigRational> {
     public final BigInteger num;
     public final BigInteger den;
 
-    public static final BigRational ZERO = new BigRational(0,1);
-    public static final BigRational ONE = new BigRational(1,1);
+    public static final BigRational ZERO = new BigRational(0);
+    public static final BigRational ONE = new BigRational(1);
+    public static final BigRational TWO = new BigRational(2);
     
     public BigRational(BigRational r) {
         this(r.num, r.den);
@@ -97,7 +98,7 @@ public class BigRational extends Number implements Comparable<BigRational> {
     }
     
     public BigRational multiply(BigRational b) {
-        return new BigRational(this.num.multiply(b.num), this.num.multiply(b.den));
+        return new BigRational(this.num.multiply(b.num), this.den.multiply(b.den));
     }
 
     public BigRational divide(BigRational b) {
