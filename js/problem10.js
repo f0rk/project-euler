@@ -1,19 +1,14 @@
-//solution: 6857
-print(eulerProblem3());
+//solution: 142913828922
+print(eulerProblem10());
 
-function eulerProblem3() {
-    var max = 1;
-    var limit = 600851475143;
-    for(var i = 3; i <= Math.sqrt(limit); i += 2) {
+function eulerProblem10() {
+    var sum = 2;
+    for(var i = 3; i < 2000000; ++i) {
         if(isPrime(i)) {
-            if(limit % i == 0) {
-                if(max < i) {
-                    max = i;
-                }
-            }
+            sum += i;
         }
     }
-    return max;
+    return sum;
 }
 
 function isPrime(n) {
