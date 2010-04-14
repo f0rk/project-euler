@@ -76,4 +76,10 @@ def euler_problem_12():
         plist.append(pgen.next())
         i += 1
     
+    i = 1
+    while 1:
+        if 500 < ndivisors((i * (i + 1)) / 2, plist):
+            return (i * (i + 1)) / 2
+        i += 1
+    
 print euler_problem_12()
