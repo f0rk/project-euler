@@ -72,15 +72,8 @@ def euler_problem_12():
     i = 0
     plist = []
     pgen = primes()
-    while i < 10000:
+    while i < 2000:
         plist.append(pgen.next())
         i += 1
     
-    i = 3
-    while 1:
-        i += 1
-        nfactors = ndivisors((i * (i + 1)) / 2, plist)
-        if nfactors >= 500:
-            return (i * (i + 1)) / 2
-
 print euler_problem_12()
