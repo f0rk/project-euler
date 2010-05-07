@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#solution: 
+#solution: 31626
 
 import math
 

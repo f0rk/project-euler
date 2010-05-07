@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#solution: 
+#solution: 871198282
 
 def name_score(name):
     total = 0
